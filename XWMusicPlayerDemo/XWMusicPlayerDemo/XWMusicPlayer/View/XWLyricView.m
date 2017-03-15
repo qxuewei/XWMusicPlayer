@@ -20,7 +20,7 @@
 
 @interface XWLyricView () <UIScrollViewDelegate>
 /* 水平滚动的大view，包含音乐播放界面及歌词界面 */
-@property (nonatomic,weak) UIScrollView *hScrollerView;
+//@property (nonatomic,weak) UIScrollView *hScrollerView;
 
 /** 定位播放的View */
 @property (nonatomic,weak) XWSliderView *sliderView;
@@ -51,8 +51,8 @@
     
     // 1.创建水平滚动的scrollerView
     UIScrollView *hScrollerView = [[UIScrollView alloc] init];
-    [self addSubview:hScrollerView];
-    self.hScrollerView = hScrollerView;
+//    [self addSubview:hScrollerView];
+//    self.hScrollerView = hScrollerView;
     hScrollerView.delegate = self;
     
     // 隐藏滑动条
@@ -63,14 +63,14 @@
     
     // 2.创建竖直滚动的scrollerView
     UIScrollView *vScrollerView = [[UIScrollView alloc] init];
-    [hScrollerView addSubview:vScrollerView];
+    [self addSubview:vScrollerView];
     vScrollerView.delegate = self;
     self.vScrollerView = vScrollerView;
     
     // 添加约束
-    [hScrollerView makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
-    }];
+//    [hScrollerView makeConstraints:^(MASConstraintMaker *make) {
+//        make.edges.equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
+//    }];
     
     // 添加sliderView
     XWSliderView *sliderView = [[XWSliderView alloc] init];
@@ -86,10 +86,9 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    self.hScrollerView.contentSize = CGSizeMake(self.bounds.size.width * 2, 0);
+//    self.hScrollerView.contentSize = CGSizeMake(self.bounds.size.width * 2, 0);
     [self.vScrollerView makeConstraints:^(MASConstraintMaker *make) {
-        make.top.bottom.width.equalTo(self);
-        make.left.equalTo(self.bounds.size.width);
+        make.top.bottom.width.left.equalTo(self);
     }];
     
     self.vScrollerView.contentSize = CGSizeMake(0, self.lyrics.count * self.rowHeight);
@@ -102,11 +101,12 @@
 
 #pragma mark UIScrollerView
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if (scrollView == self.hScrollerView) {
-        [self hScrollerViewDidScroll];
-    }else if(scrollView == self.vScrollerView){
-        [self vScrollerViewDidScroll];
-    }
+//    if (scrollView == self.hScrollerView) {
+//        [self hScrollerViewDidScroll];
+//    }else if(scrollView == self.vScrollerView){
+//        [self vScrollerViewDidScroll];
+//    }
+    [self vScrollerViewDidScroll];
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
@@ -130,14 +130,14 @@
 /**
  *  水平滚动
  */
-- (void)hScrollerViewDidScroll {
-    
-    CGFloat scrollProgress = self.hScrollerView.contentOffset.x / self.bounds.size.width;
-    //    NSLog(@"%lf",scrollProgress);
-    if ([self.delegate respondsToSelector:@selector(lyricView:withProgress:)]) {
-        [self.delegate lyricView:self withProgress:scrollProgress];
-    }
-}
+//- (void)hScrollerViewDidScroll {
+//    
+//    CGFloat scrollProgress = self.hScrollerView.contentOffset.x / self.bounds.size.width;
+//    //    NSLog(@"%lf",scrollProgress);
+//    if ([self.delegate respondsToSelector:@selector(lyricView:withProgress:)]) {
+//        [self.delegate lyricView:self withProgress:scrollProgress];
+//    }
+//}
 
 - (void)vScrollerViewDidScroll {
     CGFloat offy = self.vScrollerView.contentOffset.y + self.vScrollerView.contentInset.top;
@@ -162,7 +162,7 @@
         
         XWColorLabel *colorLabel = [[XWColorLabel alloc] init];
         colorLabel.textColor = [UIColor whiteColor];
-        colorLabel.font = [UIFont systemFontOfSize:16];
+        colorLabel.font = [UIFont systemFontOfSize:14.0];
         XWLyric *lyric = lyrics[i];
         colorLabel.text = lyric.content;
         [self.vScrollerView addSubview:colorLabel];
@@ -171,7 +171,7 @@
         [colorLabel makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.equalTo(self.vScrollerView);
             make.top.equalTo(self.rowHeight * i);
-            make.height.equalTo(self.rowHeight);
+            make.height.equalTo(self.rowHeight * 0.5);
         }];
     }
     
@@ -180,7 +180,7 @@
 
 - (NSInteger)rowHeight {
     if (_rowHeight == 0) {
-        _rowHeight = 44;
+        _rowHeight = 30;
     }
     return _rowHeight;
 }
@@ -191,10 +191,10 @@
     // 切歌时数组越界
     XWColorLabel *preLabel = self.vScrollerView.subviews[self.currentLyricIndex];
     preLabel.progress = 0;
-    preLabel.font = [UIFont systemFontOfSize:16];
+    preLabel.font = [UIFont systemFontOfSize:14.0];
     _currentLyricIndex = currentLyricIndex;
     XWColorLabel *colorLabel = self.vScrollerView.subviews[currentLyricIndex];
-    colorLabel.font = [UIFont systemFontOfSize:20];
+    colorLabel.font = [UIFont systemFontOfSize:16.0];
     
     //    if (self.vScrollerView.hidden == NO) {
     //        return;

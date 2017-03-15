@@ -123,17 +123,28 @@
                                     <constraint firstItem="hBG-Ih-G1y" firstAttribute="top" secondItem="O84-09-BWG" secondAttribute="bottom" id="sCk-Pn-YHA"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CZv-jQ-zRs" customClass="XWLyricView">
+                                <rect key="frame" x="27" y="405" width="320" height="93"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="93" id="P8G-AL-NSw"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="CZv-jQ-zRs" firstAttribute="leading" secondItem="9c2-PA-Bfn" secondAttribute="leading" id="4Vv-Br-cHp"/>
+                            <constraint firstItem="CZv-jQ-zRs" firstAttribute="top" secondItem="9c2-PA-Bfn" secondAttribute="bottom" constant="8" id="H8f-Oo-t6I"/>
                             <constraint firstItem="9c2-PA-Bfn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ObQ-6v-X9A"/>
                             <constraint firstItem="9c2-PA-Bfn" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Pm2-yZ-tkU"/>
+                            <constraint firstItem="CZv-jQ-zRs" firstAttribute="trailing" secondItem="9c2-PA-Bfn" secondAttribute="trailing" id="mrm-hH-qEi"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="LFI-4e-hfR"/>
                     <connections>
                         <outlet property="currentTimeLabel" destination="q0s-kQ-XbP" id="bZk-sY-Bu2"/>
                         <outlet property="durationLabel" destination="AUe-nv-8FJ" id="nW9-e1-ACi"/>
+                        <outlet property="lyricView" destination="CZv-jQ-zRs" id="paM-2X-CeC"/>
                         <outlet property="playBtn" destination="IhF-9n-hZq" id="2rQ-4S-L77"/>
                         <outlet property="slider" destination="5UY-gH-uKB" id="JF8-SM-CrY"/>
                         <outletCollection property="lyricsLabel" destination="O84-09-BWG" id="QLt-6E-Klj"/>
