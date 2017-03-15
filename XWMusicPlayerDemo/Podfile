@@ -1,0 +1,7 @@
+platform :ios, '9.0'
+
+target 'XWMusicPlayerDemo' do
+  # use_frameworks!
+    pod 'MJExtension'
+    pod 'Masonry'
+end
