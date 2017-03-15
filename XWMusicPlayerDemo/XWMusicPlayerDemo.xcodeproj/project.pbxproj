@@ -198,6 +198,9 @@
 				2EA625911E77BE4B0092A130 /* XWMusicPlayer */,
 				2EA625611E77BA460092A130 /* AppDelegate.h */,
 				2EA625621E77BA460092A130 /* AppDelegate.m */,
+				2EA625ED1E790EE40092A130 /* TwoVC.h */,
+				2EA625EE1E790EE40092A130 /* TwoVC.m */,
+				2EA625EF1E790EE40092A130 /* TwoVC.xib */,
 				2EA625641E77BA460092A130 /* ViewController.h */,
 				2EA625651E77BA460092A130 /* ViewController.m */,
 				2EA625671E77BA460092A130 /* Main.storyboard */,
@@ -205,9 +208,6 @@
 				2EA6256C1E77BA460092A130 /* LaunchScreen.storyboard */,
 				2EA6256F1E77BA460092A130 /* Info.plist */,
 				2EA6255E1E77BA460092A130 /* Supporting Files */,
-				2EA625ED1E790EE40092A130 /* TwoVC.h */,
-				2EA625EE1E790EE40092A130 /* TwoVC.m */,
-				2EA625EF1E790EE40092A130 /* TwoVC.xib */,
 			);
 			path = XWMusicPlayerDemo;
 			sourceTree = "<group>";

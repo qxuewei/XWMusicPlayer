@@ -30,7 +30,7 @@
                 <constraint firstItem="LzB-XQ-KSL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="VEl-Mw-DQN"/>
                 <constraint firstAttribute="trailing" secondItem="LzB-XQ-KSL" secondAttribute="trailing" id="gSJ-D8-bHZ"/>
             </constraints>
-            <point key="canvasLocation" x="33.5" y="54.5"/>
+            <point key="canvasLocation" x="-7" y="51"/>
         </view>
     </objects>
     <resources>

@@ -5,9 +5,6 @@
 //  Created by 邱学伟 on 2017/3/15.
 //  Copyright © 2017年 邱学伟. All rights reserved.
 //
-
-// 忽略前缀
-#define MAS_SHORTHAND
 // 集中装箱  基本数据类型转换成对象
 #define MAS_SHORTHAND_GLOBALS
 #import "XWMusicPlayer.h"
