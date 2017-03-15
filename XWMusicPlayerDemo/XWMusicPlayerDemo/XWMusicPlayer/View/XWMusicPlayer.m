@@ -1,18 +1,16 @@
 //
-//  ViewController.m
+//  XWMusicPlayer.m
 //  XWMusicPlayerDemo
 //
-//  Created by 邱学伟 on 2017/3/14.
+//  Created by 邱学伟 on 2017/3/15.
 //  Copyright © 2017年 邱学伟. All rights reserved.
 //
 
 // 忽略前缀
 #define MAS_SHORTHAND
-
 // 集中装箱  基本数据类型转换成对象
 #define MAS_SHORTHAND_GLOBALS
-
-#import "ViewController.h"
+#import "XWMusicPlayer.h"
 #import "MJExtension.h"
 #import "XWMusic.h"
 #import "XWPlayManager.h"
@@ -23,19 +21,16 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import <notify.h>
 #import "XWLyricView.h"
-
-#import "TwoVC.h"
-
-@interface ViewController () <XWLyricViewDelegate>
-
+@interface XWMusicPlayer ()
 #pragma mark 私有属性
 @property (nonatomic,strong) NSArray *musics;
-@property (nonatomic,assign) NSInteger currentMusicIndex;
 @property (nonatomic,strong) NSTimer *timer;
 @property (nonatomic,strong) NSArray *lyrics;
 @property (nonatomic,assign) NSInteger currentLyricIndex;
 
 #pragma mark 共用的属性
+// 当前播放的歌曲
+@property (nonatomic, strong) XWMusic *music;
 // 播放按钮
 @property (weak, nonatomic) IBOutlet UIButton *playBtn;
 // 当前播放时间
@@ -49,41 +44,21 @@
 @property (strong, nonatomic) IBOutletCollection(XWColorLabel) NSArray *lyricsLabel2;
 // 播放
 - (IBAction)play;
-
 @property (weak, nonatomic) IBOutlet XWLyricView *lyricView;
-
 @end
 
-@implementation ViewController
+@implementation XWMusicPlayer
 
-#pragma mark - 测试封装类
-- (IBAction)toTwoVC:(UIButton *)sender {
-    
-    [self.navigationController pushViewController:[[TwoVC alloc] init] animated:YES];
+- (void)startShowMusic:(XWMusic *)music {
+    [self changeMusic:music];
 }
 
-
-
-- (NSArray *)musics {
-    if (!_musics) {
-        _musics = [XWMusic mj_objectArrayWithFilename:@"mlist.plist"];
-    }
-    return _musics;
-}
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // 切歌
-//    [self changeMusic];
-    
-    self.lyricView.delegate = self;
-}
 
 - (IBAction)play {
     XWPlayManager *playManager = [XWPlayManager sharedPlayManager];
     if (self.playBtn.selected == NO) {
         [self startUpdateProgress];
-        XWMusic *music = self.musics[self.currentMusicIndex];
-        [playManager playMusicWithFileName:music.mp3 didComplete:^{
+        [playManager playMusicWithFileName:_music.mp3 didComplete:^{
             NSLog(@"歌曲播放完毕");
         }];
         self.playBtn.selected = YES;
@@ -92,29 +67,35 @@
         [playManager pause];
         [self stopUpdateProgress];
     }
-    
 }
 
 /**
  *  切歌
  */
-- (void)changeMusic {
+- (void)changeMusic:(XWMusic *)music {
+    if (_music == music) {
+        return;
+    }
+    _music = music;
     // 防止切歌时歌词数组越界
     self.currentLyricIndex = 0;
     // 切歌时销毁当前的定时器
     [self stopUpdateProgress];
     XWPlayManager *pm = [XWPlayManager sharedPlayManager];
-    XWMusic *music = self.musics[self.currentMusicIndex];
     // 解析歌词
     self.lyrics = [XWLyricParser parserLyricWithFileName:music.lrc];
     // 歌词
     self.lyricView.lyrics = self.lyrics;
     self.playBtn.selected = NO;
-    self.navigationItem.title = music.name;
     [self play];
     self.durationLabel.text = [XWTimeTool stringWithTime:pm.duration];
-    
-    // 给竖直歌词赋值
+}
+
+- (void)stopPlayMusic:(XWMusic *)music {
+    XWPlayManager *playManager = [XWPlayManager sharedPlayManager];
+    [playManager pause];
+    [self stopUpdateProgress];
+    music = NULL;
 }
 
 - (void)startUpdateProgress {
@@ -133,7 +114,6 @@
     self.slider.progress = pm.currentTime / pm.duration;
     //  更新歌词
     [self updateLyric];
-    
 }
 
 - (void)updateLyric {
@@ -164,9 +144,7 @@
     CGFloat progress = (pm.currentTime - lyric.time) / (nextLyric.time - lyric.time);
     [self.lyricsLabel setValue:@(progress) forKey:@"progress"];
     
-    
     self.lyricView.currentLyricIndex = self.currentLyricIndex;
-    
     self.lyricView.lyricProgress = progress;
 }
 
@@ -191,9 +169,4 @@
     });
 }
 
-#pragma mark 代理
-- (void)lyricView:(XWLyricView *)lyricView withProgress:(CGFloat)progress {
-    
-    self.view.alpha = 1- progress;
-}
 @end

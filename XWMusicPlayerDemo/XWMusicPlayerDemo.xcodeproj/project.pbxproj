@@ -50,6 +50,10 @@
 		2EA625E01E77DF380092A130 /* 朴翔.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2EA625C81E77DF380092A130 /* 朴翔.jpg */; };
 		2EA625E11E77DF380092A130 /* 陈奕迅 - 陪你度过漫长岁月 (国语).lrc in Resources */ = {isa = PBXBuildFile; fileRef = 2EA625C91E77DF380092A130 /* 陈奕迅 - 陪你度过漫长岁月 (国语).lrc */; };
 		2EA625E21E77DF380092A130 /* 陈奕迅 - 陪你度过漫长岁月 (国语).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2EA625CA1E77DF380092A130 /* 陈奕迅 - 陪你度过漫长岁月 (国语).mp3 */; };
+		2EA625E51E790BB10092A130 /* XWMusicPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EA625E41E790BB10092A130 /* XWMusicPlayer.m */; };
+		2EA625E71E790BBC0092A130 /* XWMusicPlayer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EA625E61E790BBC0092A130 /* XWMusicPlayer.xib */; };
+		2EA625F01E790EE40092A130 /* TwoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EA625EE1E790EE40092A130 /* TwoVC.m */; };
+		2EA625F11E790EE40092A130 /* TwoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EA625EF1E790EE40092A130 /* TwoVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +134,12 @@
 		2EA625C81E77DF380092A130 /* 朴翔.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "朴翔.jpg"; sourceTree = "<group>"; };
 		2EA625C91E77DF380092A130 /* 陈奕迅 - 陪你度过漫长岁月 (国语).lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "陈奕迅 - 陪你度过漫长岁月 (国语).lrc"; sourceTree = "<group>"; };
 		2EA625CA1E77DF380092A130 /* 陈奕迅 - 陪你度过漫长岁月 (国语).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "陈奕迅 - 陪你度过漫长岁月 (国语).mp3"; sourceTree = "<group>"; };
+		2EA625E31E790BB10092A130 /* XWMusicPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWMusicPlayer.h; sourceTree = "<group>"; };
+		2EA625E41E790BB10092A130 /* XWMusicPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWMusicPlayer.m; sourceTree = "<group>"; };
+		2EA625E61E790BBC0092A130 /* XWMusicPlayer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XWMusicPlayer.xib; sourceTree = "<group>"; };
+		2EA625ED1E790EE40092A130 /* TwoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwoVC.h; sourceTree = "<group>"; };
+		2EA625EE1E790EE40092A130 /* TwoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwoVC.m; sourceTree = "<group>"; };
+		2EA625EF1E790EE40092A130 /* TwoVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwoVC.xib; sourceTree = "<group>"; };
 		90F92CAE9186F5F08618E695 /* libPods-XWMusicPlayerDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XWMusicPlayerDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6283C9FFD4000D1B3F7434D /* Pods-XWMusicPlayerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XWMusicPlayerDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-XWMusicPlayerDemo/Pods-XWMusicPlayerDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -195,6 +205,9 @@
 				2EA6256C1E77BA460092A130 /* LaunchScreen.storyboard */,
 				2EA6256F1E77BA460092A130 /* Info.plist */,
 				2EA6255E1E77BA460092A130 /* Supporting Files */,
+				2EA625ED1E790EE40092A130 /* TwoVC.h */,
+				2EA625EE1E790EE40092A130 /* TwoVC.m */,
+				2EA625EF1E790EE40092A130 /* TwoVC.xib */,
 			);
 			path = XWMusicPlayerDemo;
 			sourceTree = "<group>";
@@ -272,6 +285,9 @@
 				2EA625AB1E77C82C0092A130 /* XWLyricView.m */,
 				2EA625AD1E77C9790092A130 /* XWSliderView.h */,
 				2EA625AE1E77C9790092A130 /* XWSliderView.m */,
+				2EA625E31E790BB10092A130 /* XWMusicPlayer.h */,
+				2EA625E41E790BB10092A130 /* XWMusicPlayer.m */,
+				2EA625E61E790BBC0092A130 /* XWMusicPlayer.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -450,6 +466,8 @@
 				2EA625B11E77D5810092A130 /* mlist.plist in Resources */,
 				2EA625D41E77DF380092A130 /* 宋冬野 - 安河桥.mp3 in Resources */,
 				2EA625D91E77DF380092A130 /* 徐歌阳.jpg in Resources */,
+				2EA625E71E790BBC0092A130 /* XWMusicPlayer.xib in Resources */,
+				2EA625F11E790EE40092A130 /* TwoVC.xib in Resources */,
 				2EA625E01E77DF380092A130 /* 朴翔.jpg in Resources */,
 				2EA625691E77BA460092A130 /* Main.storyboard in Resources */,
 				2EA625CD1E77DF380092A130 /* eason.jpg in Resources */,
@@ -539,12 +557,14 @@
 				2EA625971E77BE8C0092A130 /* XWMusic.m in Sources */,
 				2EA625A31E77C6630092A130 /* XWLyricParser.m in Sources */,
 				2EA625AC1E77C82C0092A130 /* XWLyricView.m in Sources */,
+				2EA625F01E790EE40092A130 /* TwoVC.m in Sources */,
 				2EA625661E77BA460092A130 /* ViewController.m in Sources */,
 				2EA6259A1E77BEBC0092A130 /* XWLyric.m in Sources */,
 				2EA625631E77BA460092A130 /* AppDelegate.m in Sources */,
 				2EA625AF1E77C9790092A130 /* XWSliderView.m in Sources */,
 				2EA6259D1E77BF830092A130 /* XWPlayManager.m in Sources */,
 				2EA625A01E77C5FF0092A130 /* XWTimeTool.m in Sources */,
+				2EA625E51E790BB10092A130 /* XWMusicPlayer.m in Sources */,
 				2EA625A91E77C7BF0092A130 /* XWColorLabel.m in Sources */,
 				2EA625601E77BA460092A130 /* main.m in Sources */,
 				2EA625A61E77C6A00092A130 /* NSDateFormatter+shared.m in Sources */,
