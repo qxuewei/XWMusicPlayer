@@ -53,7 +53,7 @@
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     
-    
+    //随机播放音乐!
     music = [self.musics objectAtIndex:arc4random_uniform(6)];
     [self.musicPlayer startShowMusic:music];
     self.musicPlayer.hidden = NO;
