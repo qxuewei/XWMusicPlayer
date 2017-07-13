@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -18,26 +18,46 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1F2-ot-pGL" userLabel="MyView">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="128"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CM9-iq-iS9" userLabel="lyric" customClass="XWColorLabel">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="32"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jVe-yP-NBJ">
+                            <rect key="frame" x="0.0" y="0.0" width="240" height="32"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CM9-iq-iS9" userLabel="lyric" customClass="XWColorLabel">
+                                    <rect key="frame" x="0.0" y="0.0" width="240" height="32"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="0.27694242289999998" colorSpace="calibratedRGB"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="32" id="dBt-Zd-jt6"/>
+                                <constraint firstAttribute="bottom" secondItem="CM9-iq-iS9" secondAttribute="bottom" id="4nO-CF-31I"/>
+                                <constraint firstItem="CM9-iq-iS9" firstAttribute="leading" secondItem="jVe-yP-NBJ" secondAttribute="leading" id="PLE-am-9fZ"/>
+                                <constraint firstAttribute="trailing" secondItem="CM9-iq-iS9" secondAttribute="trailing" id="leh-B8-IpE"/>
+                                <constraint firstAttribute="height" constant="32" id="m8A-yF-CAx"/>
+                                <constraint firstItem="CM9-iq-iS9" firstAttribute="top" secondItem="jVe-yP-NBJ" secondAttribute="top" id="mAg-gX-Vzh"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3gj-Bb-8O1" userLabel="lyric" customClass="XWColorLabel">
-                            <rect key="frame" x="0.0" y="32" width="320" height="32"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lbk-el-VjF">
+                            <rect key="frame" x="80" y="32" width="240" height="32"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3gj-Bb-8O1" userLabel="lyric" customClass="XWColorLabel">
+                                    <rect key="frame" x="0.0" y="0.0" width="240" height="32"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="0.45264340749999998" colorSpace="calibratedRGB"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="32" id="Mkc-Y7-4mj"/>
+                                <constraint firstItem="3gj-Bb-8O1" firstAttribute="top" secondItem="lbk-el-VjF" secondAttribute="top" id="Cdq-dZ-0X8"/>
+                                <constraint firstAttribute="trailing" secondItem="3gj-Bb-8O1" secondAttribute="trailing" id="D4b-mc-FTa"/>
+                                <constraint firstAttribute="bottom" secondItem="3gj-Bb-8O1" secondAttribute="bottom" id="H6G-CR-Ekf"/>
+                                <constraint firstItem="3gj-Bb-8O1" firstAttribute="leading" secondItem="lbk-el-VjF" secondAttribute="leading" id="Wqa-fO-qeO"/>
+                                <constraint firstAttribute="height" constant="32" id="x6X-FN-9cf"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                        </view>
                         <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="Cxj-NS-j1Z" userLabel="bottom">
                             <rect key="frame" x="0.0" y="64" width="320" height="64"/>
                             <subviews>
@@ -103,23 +123,23 @@
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="CM9-iq-iS9" firstAttribute="leading" secondItem="1F2-ot-pGL" secondAttribute="leading" id="8pX-kq-x85"/>
+                        <constraint firstItem="jVe-yP-NBJ" firstAttribute="leading" secondItem="1F2-ot-pGL" secondAttribute="leading" id="1sy-QA-hkf"/>
+                        <constraint firstAttribute="trailing" secondItem="jVe-yP-NBJ" secondAttribute="trailing" constant="80" id="6cJ-Df-ery"/>
                         <constraint firstAttribute="width" constant="320" id="8pY-eU-PpF"/>
                         <constraint firstAttribute="height" constant="128" id="Cm1-wi-N9c"/>
                         <constraint firstAttribute="trailing" secondItem="Cxj-NS-j1Z" secondAttribute="trailing" id="HOC-O4-5Mw"/>
-                        <constraint firstAttribute="trailing" secondItem="3gj-Bb-8O1" secondAttribute="trailing" id="LFf-r2-XIn"/>
                         <constraint firstItem="1gz-oM-0qy" firstAttribute="centerX" secondItem="1F2-ot-pGL" secondAttribute="centerX" id="Qa3-u0-dxe"/>
-                        <constraint firstItem="CM9-iq-iS9" firstAttribute="top" secondItem="1F2-ot-pGL" secondAttribute="top" id="VFg-jT-DVx"/>
                         <constraint firstAttribute="bottom" secondItem="Cxj-NS-j1Z" secondAttribute="bottom" id="XvQ-7B-ibX"/>
-                        <constraint firstItem="3gj-Bb-8O1" firstAttribute="leading" secondItem="1F2-ot-pGL" secondAttribute="leading" id="hPc-Dj-gYn"/>
-                        <constraint firstItem="3gj-Bb-8O1" firstAttribute="top" secondItem="CM9-iq-iS9" secondAttribute="bottom" id="hdH-Bf-BDg"/>
+                        <constraint firstItem="lbk-el-VjF" firstAttribute="top" secondItem="jVe-yP-NBJ" secondAttribute="bottom" id="cG7-Hp-IqC"/>
+                        <constraint firstItem="lbk-el-VjF" firstAttribute="leading" secondItem="1F2-ot-pGL" secondAttribute="leading" constant="80" id="fbB-ki-RIx"/>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="128" id="nIQ-Fd-spO"/>
-                        <constraint firstAttribute="trailing" secondItem="CM9-iq-iS9" secondAttribute="trailing" id="p1m-Wp-l0Y"/>
                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="320" id="qj5-kx-Ak1"/>
+                        <constraint firstItem="jVe-yP-NBJ" firstAttribute="top" secondItem="1F2-ot-pGL" secondAttribute="top" id="rdN-4M-JSb"/>
                         <constraint firstItem="Cxj-NS-j1Z" firstAttribute="leading" secondItem="1F2-ot-pGL" secondAttribute="leading" id="v1H-xA-nyg"/>
+                        <constraint firstAttribute="trailing" secondItem="lbk-el-VjF" secondAttribute="trailing" id="x7c-8l-XWp"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iP0-VO-fs3" customClass="XWLyricView">
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iP0-VO-fs3" customClass="XWLyricView">
                     <rect key="frame" x="0.0" y="128" width="320" height="93"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
@@ -137,11 +157,13 @@
             <connections>
                 <outlet property="currentTimeLabel" destination="610-li-pGF" id="wQ6-a4-nPH"/>
                 <outlet property="durationLabel" destination="Va8-KF-Eek" id="eRb-LQ-DrA"/>
+                <outlet property="leftBackgroundView" destination="jVe-yP-NBJ" id="bxb-rB-xcd"/>
                 <outlet property="lyricView" destination="iP0-VO-fs3" id="9un-u8-7at"/>
                 <outlet property="playBtn" destination="1gz-oM-0qy" id="C4H-p2-XTe"/>
+                <outlet property="rightBackgroundView" destination="lbk-el-VjF" id="tAA-t9-nUC"/>
                 <outlet property="slider" destination="eFB-Yf-Zwy" id="4tv-T9-YVz"/>
-                <outletCollection property="lyricsLabel" destination="CM9-iq-iS9" id="PLY-FT-2dq"/>
-                <outletCollection property="lyricsLabel2" destination="3gj-Bb-8O1" id="VV2-7J-rdo"/>
+                <outletCollection property="lyricsLabelLeft" destination="CM9-iq-iS9" id="tbL-GJ-jh8"/>
+                <outletCollection property="lyricsLabelRight" destination="3gj-Bb-8O1" id="0us-U0-FjA"/>
             </connections>
             <point key="canvasLocation" x="45" y="146.5"/>
         </view>

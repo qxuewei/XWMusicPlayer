@@ -34,7 +34,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.musicPlayer = [[NSBundle mainBundle] loadNibNamed:@"XWMusicPlayer" owner:nil options:nil].lastObject;
+    NSArray *a = [[NSBundle mainBundle] loadNibNamed:@"XWMusicPlayer" owner:nil options:nil];
+    self.musicPlayer = a.lastObject;
     self.musicPlayer.frame = CGRectMake(30, 200, [UIScreen mainScreen].bounds.size.width - 60, 221);
     [self.view addSubview:self.musicPlayer];
     self.musicPlayer.hidden = YES;

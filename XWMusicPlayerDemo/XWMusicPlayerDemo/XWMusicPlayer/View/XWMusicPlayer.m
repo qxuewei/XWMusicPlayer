@@ -25,6 +25,10 @@
 @property (nonatomic,strong) NSArray *lyrics;
 @property (nonatomic,assign) NSInteger currentLyricIndex;
 
+@property (weak, nonatomic) IBOutlet UIView *leftBackgroundView;
+
+@property (weak, nonatomic) IBOutlet UIView *rightBackgroundView;
+
 #pragma mark 共用的属性
 // 当前播放的歌曲
 @property (nonatomic, strong) XWMusic *music;
@@ -37,8 +41,8 @@
 // 播放进度
 @property (weak, nonatomic) IBOutlet UIProgressView *slider;
 // 歌词
-@property (strong, nonatomic) IBOutletCollection(XWColorLabel) NSArray *lyricsLabel;
-@property (strong, nonatomic) IBOutletCollection(XWColorLabel) NSArray *lyricsLabel2;
+@property (strong, nonatomic) IBOutletCollection(XWColorLabel) NSArray *lyricsLabelLeft;
+@property (strong, nonatomic) IBOutletCollection(XWColorLabel) NSArray *lyricsLabelRight;
 // 播放
 - (IBAction)play;
 @property (weak, nonatomic) IBOutlet XWLyricView *lyricView;
@@ -133,16 +137,26 @@
         [self updateLyric];
     }
     
-    [self setNextLyric];
     
-    // 设置歌词内容
-    [self.lyricsLabel setValue:lyric.content forKey:@"text"];
-    // 设置歌词颜色
-    CGFloat progress = (pm.currentTime - lyric.time) / (nextLyric.time - lyric.time);
-    [self.lyricsLabel setValue:@(progress) forKey:@"progress"];
-    
-    self.lyricView.currentLyricIndex = self.currentLyricIndex;
-    self.lyricView.lyricProgress = progress;
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        [self setNextLyric];
+        
+        // 设置歌词内容
+        XWColorLabel *colorLable = [self.lyricsLabelLeft firstObject];
+        if (![colorLable.text isEqualToString:lyric.content]) {
+            [self.lyricsLabelLeft setValue:lyric.content forKey:@"text"];
+        }
+        // 设置歌词颜色
+        CGFloat progress = (pm.currentTime - lyric.time) / (nextLyric.time - lyric.time);
+        [self.lyricsLabelLeft setValue:@(progress) forKey:@"progress"];
+        
+        self.lyricView.currentLyricIndex = self.currentLyricIndex;
+        self.lyricView.lyricProgress = progress;
+        NSLog(@"%.4f",progress);
+        if (progress > 1.0) {
+            [XWMusicPlayer replaceView:self.leftBackgroundView rightView:self.rightBackgroundView];
+        }
+    }];
 }
 
 - (void)setNextLyric {
@@ -153,17 +167,23 @@
             XWLyric *lyric2 = self.lyrics[i];
             if (lyric2 && lyric2.content.length > 0) {
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    [self.lyricsLabel2 setValue:lyric2.content forKey:@"text"];
+                    [self.lyricsLabelRight setValue:lyric2.content forKey:@"text"];
                 });
                 break;
             }else{
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    [self.lyricsLabel2 setValue:@"" forKey:@"text"];
+                    [self.lyricsLabelRight setValue:@"" forKey:@"text"];
                 });
                 continue;
             }
         }
     });
+}
+
++ (void)replaceView:(UIView *)leftView rightView:(UIView *)rightView {
+    CGPoint tempCenter = rightView.center;
+    rightView.center = leftView.center;
+    leftView.center = tempCenter;
 }
 
 @end
